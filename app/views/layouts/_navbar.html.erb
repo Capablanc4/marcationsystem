@@ -5,30 +5,30 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <% if !user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link active" href="/users/sign_in">Log in</a>
+             <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="/users/sign_up">Sign Up</a>
+              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
             </li>
             <% else %>
-            <li class="nav-item">
-                <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link active" %>
-            </li>
-            <% end %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                <strong class="text-light">Hola <%= current_user.username.capitalize %></strong>
+                <%= image_tag "user.png", alt: "User Avatar", class: "rounded-circle bg-light", style: "width 30px; height: 25px" %>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><%= link_to "Editar Perfil", edit_user_registration_path, class: "dropdown-item" %></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li>
+                  <%= link_to 'Cerrar sesión', destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+                </li>
               </ul>
             </li>
+            <% end %>
           </ul>
           <!-- #region
           <form class="d-flex">

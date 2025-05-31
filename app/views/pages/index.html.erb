@@ -1,5 +1,169 @@
+<div class="bg-dark text-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold mb-3">Sistema de Control de Asistencia</h1>
+        <p class="lead mb-4">Gestiona de manera eficiente las marcaciones de entrada y salida de tu personal con nuestra plataforma integral.</p>
+        <% if user_signed_in? %>
+          <a href="#dashboard" class="btn btn-light btn-lg me-3">
+            <i class="fas fa-tachometer-alt me-2"></i>Ir al Dashboard
+          </a>
+        <% else %>
+          <%= link_to "Iniciar Sesión", new_user_session_path, class: "btn btn-light btn-lg me-3" %>
+          <%= link_to "Registrarse", new_user_registration_path, class: "btn btn-outline-light btn-lg" %>
+        <% end %>
+      </div>
+      <div class="col-lg-6">
+        <div class="text-center">
+          <i class="fas fa-clock display-1 opacity-75"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="py-5">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col-lg-12">
+        <h2 class="fw-bold mb-3">Características Principales</h2>
+        <p class="text-muted">Todo lo que necesitas para gestionar la asistencia de tu equipo</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+              <i class="fas fa-sign-in-alt text-primary fs-4"></i>
+            </div>
+            <h5 class="card-title fw-bold">Marcación Rápida</h5>
+            <p class="card-text text-muted">Registra entradas y salidas de forma rápida y sencilla con un solo clic.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+              <i class="fas fa-chart-line text-success fs-4"></i>
+            </div>
+            <h5 class="card-title fw-bold">Reportes Detallados</h5>
+            <p class="card-text text-muted">Genera reportes completos de asistencia y horas trabajadas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body text-center p-4">
+            <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+              <i class="fas fa-shield-alt text-warning fs-4"></i>
+            </div>
+            <h5 class="card-title fw-bold">Seguro y Confiable</h5>
+            <p class="card-text text-muted">Información protegida con los más altos estándares de seguridad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Actions Section (Solo para usuarios autenticados) -->
 <% if user_signed_in? %>
-  <h1>Welcome Home, <%= current_user.username.capitalize %></h1>
-<% else %>
-  <h1>Home</h1>
+<div class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center mb-4">
+        <h3 class="fw-bold">Acciones Rápidas</h3>
+        <p class="text-muted">Bienvenido de vuelta, <%= current_user.username.capitalize %></p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-3 mb-3">
+        <a href="#" class="btn btn-success btn-lg w-100 py-3">
+          <i class="fas fa-sign-in-alt me-2"></i>
+          <br>Marcar Entrada
+        </a>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="#" class="btn btn-danger btn-lg w-100 py-3">
+          <i class="fas fa-sign-out-alt me-2"></i>
+          <br>Marcar Salida
+        </a>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="#" class="btn btn-info btn-lg w-100 py-3">
+          <i class="fas fa-calendar-alt me-2"></i>
+          <br>Ver Historial
+        </a>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="#" class="btn btn-warning btn-lg w-100 py-3">
+          <i class="fas fa-file-alt me-2"></i>
+          <br>Generar Reporte
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
+
+<!-- Stats Section -->
+<div class="py-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3 mb-4">
+        <div class="card border-0">
+          <div class="card-body">
+            <h2 class="display-6 fw-bold text-primary">24/7</h2>
+            <p class="text-muted mb-0">Disponibilidad</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card border-0">
+          <div class="card-body">
+            <h2 class="display-6 fw-bold text-success">100%</h2>
+            <p class="text-muted mb-0">Precisión</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card border-0">
+          <div class="card-body">
+            <h2 class="display-6 fw-bold text-warning">Tiempo Real</h2>
+            <p class="text-muted mb-0">Monitoreo</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-4">
+        <div class="card border-0">
+          <div class="card-body">
+            <h2 class="display-6 fw-bold text-info">Seguro</h2>
+            <p class="text-muted mb-0">Datos Protegidos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer CTA -->
+<div class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <h5 class="mb-0">¿Necesitas ayuda con el sistema?</h5>
+        <small class="text-muted">Nuestro equipo de soporte está disponible para asistirte.</small>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <a href="#" class="btn btn-outline-light">Contactar Soporte</a>
+      </div>
+    </div>
+  </div>
+</div>
