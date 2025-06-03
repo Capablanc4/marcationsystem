@@ -21,7 +21,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><%= link_to "Editar Perfil", edit_user_registration_path, class: "dropdown-item" %></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><%= link_to "Marcaciones",  new_attendance_record_path, class: "dropdown-item" %></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                   <%= link_to 'Cerrar sesión', destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>

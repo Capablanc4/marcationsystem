@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "pages#index"
-  get "pages/index"
+  resources :attendance_records
   # devise_scope :user do
   # Ahora Devise reconoce el mapping :user para "/"
   #  root to: "devise/sessions#new"
