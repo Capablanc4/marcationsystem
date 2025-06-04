@@ -6,6 +6,10 @@ class AttendanceRecord < ApplicationRecord
   validates :record_type, presence: true,
             inclusion: { in: RECORD_TYPES }
   validates :comment, length: { minimum: 0, maximum: 300 }, allow_blank: true
+  validates :record_type, uniqueness: {
+    scope: [ :user_id, :date ],
+    message: "Ya has registrado este tipo de evento hoy"
+  }
   scope :for_user, ->(user) { where(user: user) }
   scope :for_date, ->(date) { where(date: date) }
   scope :by_time, -> { order(:time) }

@@ -12,11 +12,16 @@ class AttendanceRecordsController < ApplicationController
     @attendance.user_id = current_user.id
     @attendance.date = Time.zone.today
     @attendance.time = Time.zone.now
+
     if @attendance.save
       flash[:notice] = "Marcacion Registrada"
       redirect_to root_path
     else
-      flash[:danger] = "No se ha podido registrar el evento"
+      if @attendance.errors[:record_type].any?
+      flash.now[:alert] = "Ya has registrado '#{@attendance.record_type.humanize}' hoy"
+      else
+        flash.now[:alert] = @attendance.errors.full_messages.join(", ")
+      end
       render :new, status: :unprocessable_entity
     end
   end
